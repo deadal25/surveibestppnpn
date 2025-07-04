@@ -30,29 +30,59 @@
       color: #333;
     }
     
-    .profile {
+   .profile {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   background: #e8f4ff;
-  padding: 40px;
+  padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
+  gap: 20px;
 }
+
 .profile img {
-  max-width: 350px;
-  max-height: 350px;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
   border-radius: 5px;
-  margin-left: auto;
+  object-fit: cover;
 }
+
 .profile .name {
   font-size: 24px;
   color: #003366;
-  margin-right: auto;
 }
+
 #person-jabatan {
   font-size: 16px;
   color: #666;
 }
+
+/* Untuk HP ukuran kecil */
+@media (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile img {
+    width: 80%;
+    max-width: 250px;
+  }
+
+  .profile .name {
+    font-size: 20px;
+  }
+
+  #person-jabatan {
+    font-size: 14px;
+  }
+}
+
+
 
     .question {
       margin: 20px 0 10px;
