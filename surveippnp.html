@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SURVEI BEST PPNPN</title>
   <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -13,74 +14,77 @@
       margin: 0;
       padding: 20px;
     }
+
     .container {
       max-width: 800px;
       margin: auto;
       background: #fff;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
       text-align: center;
       color: #003366;
     }
+
     p {
       text-align: center;
       color: #333;
     }
-    
-   .profile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background: #e8f4ff;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 20px;
-  gap: 20px;
-}
 
-.profile img {
-  width: 300px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  object-fit: cover;
-}
+    .profile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background: #e8f4ff;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      gap: 20px;
+    }
 
-.profile .name {
-  font-size: 24px;
-  color: #003366;
-}
+    .profile img {
+      width: 300px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      object-fit: cover;
+    }
 
-#person-jabatan {
-  font-size: 16px;
-  color: #666;
-}
+    .profile .name {
+      font-size: 24px;
+      color: #003366;
+    }
 
-/* Untuk HP ukuran kecil */
-@media (max-width: 600px) {
-  .profile {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    #person-jabatan {
+      font-size: 16px;
+      color: #666;
+    }
 
-  .profile img {
-    width: 80%;
-    max-width: 250px;
-  }
+    /* Untuk HP ukuran kecil */
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-  .profile .name {
-    font-size: 20px;
-  }
+      .profile img {
+        width: 80%;
+        max-width: 250px;
+      }
 
-  #person-jabatan {
-    font-size: 14px;
-  }
-}
+      .profile .name {
+        font-size: 20px;
+      }
+
+      #person-jabatan {
+        font-size: 14px;
+      }
+    }
 
 
 
@@ -89,9 +93,11 @@
       font-size: 16px;
       font-weight: bold;
     }
+
     .rating {
       margin-bottom: 15px;
     }
+
     .fa-trophy {
       font-size: 24px;
       cursor: pointer;
@@ -99,17 +105,21 @@
       transition: transform 0.2s;
       margin-right: 5px;
     }
+
     .fa-trophy:hover {
       transform: scale(1.2);
     }
+
     .fa-trophy.selected {
       color: gold;
     }
+
     .button-group {
       display: flex;
       justify-content: space-between;
       margin-top: 20px;
     }
+
     .btn {
       background: #007acc;
       color: white;
@@ -118,27 +128,31 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     .btn:hover {
       background: #005fa3;
     }
+
     .btn:disabled {
       background: #ccc;
       cursor: not-allowed;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1 id="judul-survei">SURVEI BEST PPNPN</h1>
-    <p>Ketika Anda mengirimkan formulir ini, itu tidak akan secara otomatis mengumpulkan detail Anda seperti nama dan alamat email kecuali Anda memberikannya sendiri.</p>
+    <p>Ketika Anda mengirimkan formulir ini, itu tidak akan secara otomatis mengumpulkan detail Anda seperti nama dan
+      alamat email kecuali Anda memberikannya sendiri.</p>
 
-   <div class="profile">
-  <div>
-    <div class="name" id="person-name"></div>
-    <div id="person-jabatan" style="font-size: 14px; color: #666;"></div>
-  </div>
-  <img id="person-photo" src="images/logo.png" alt="Foto" onerror="this.src='images/default.jpg';">
-</div>
+    <div class="profile">
+      <div>
+        <div class="name" id="person-name"></div>
+        <div id="person-jabatan" style="font-size: 14px; color: #666;"></div>
+      </div>
+      <img id="person-photo" src="images/logo.png" alt="Foto" onerror="this.src='images/default.jpg';">
+    </div>
 
 
     <div class="input-area" id="questions"></div>
@@ -151,98 +165,98 @@
 
   <!-- Firebase SDK -->
   <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyCr_Cf37bJxVdExfrJ-CjWzpfjvAiQ0tAQ",
-    authDomain: "surveikppnmajene.firebaseapp.com",
-    databaseURL: "https://surveikppnmajene-default-rtdb.firebaseio.com",
-    projectId: "surveikppnmajene",
-    storageBucket: "surveikppnmajene.appspot.com",
-    messagingSenderId: "640777729032",
-    appId: "1:640777729032:web:a33f948c1d985b9d560dbd",
-    measurementId: "G-36WTJ9Q78P"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-</script>
-
-<script>
-  let people = []; // diisi dari Firebase DinilaiPPNPN
-  let scores = [];
-  let currentPerson = 0;
-  let triwulanAktif = "TRIWULAN_I";
-  const namaResponden = localStorage.getItem("responden") || "Responden Tidak Dikenal";
-
-  const pertanyaanList = [
-    "Bagaimana Penerapan Beliau pada Nilai Integritas?",
-    "Bagaimana Penerapan Beliau pada Nilai Profesionalisme?",
-    "Bagaimana Penerapan Beliau pada Nilai Sinergi?",
-    "Bagaimana Penerapan Beliau pada Nilai Pelayanan?",
-    "Bagaimana Penerapan Beliau pada Nilai Kesempurnaan?",
-    "Bagaimana Penerapan Beliau pada Budaya Kerja \"Satu Informasi Setiap Hari\"?",
-    "Bagaimana Penerapan Beliau pada Budaya Kerja \"Dua Menit Sebelum Jadwal\"?",
-    "Bagaimana Penerapan Beliau pada Budaya Kerja \"Tiga Salam Setiap Hari\"?",
-    "Bagaimana Penerapan Beliau pada Budaya Kerja \"Rencanakan, Kerjakan, Monitor dan Tindaklanjuti\"?",
-    "Bagaimana Penerapan Beliau pada Budaya Kerja \"Ringkas, Rapi, Resik, Rawat, dan Rajin\"?"
-  ];
-
-  // Ambil triwulan aktif dari Firebase
-  database.ref("pengaturan/surveippnp/aktifTriwulan").on("value", function(snapshot) {
-    const val = snapshot.val();
-    if (val) {
-      triwulanAktif = val;
-      const teksTriwulan = val.replace("TRIWULAN_", "TRIWULAN ");
-      document.getElementById("judul-survei").textContent = `SURVEI BEST PPNPN ${teksTriwulan} TAHUN 2025`;
-    }
-  });
-
-  // Ambil data pegawai DinilaiPPNPN dari Firebase
-  function ambilDataDinilai() {
-  database.ref("DinilaiPPNPN").once("value").then(snapshot => {
-    const data = snapshot.val();
-    if (data) {
-      people = Object.entries(data)
-        .sort((a, b) => a[1].timestamp - b[1].timestamp)
-        .map(([nama, detail]) => ({
-          name: nama,
-          photo: detail.foto || "images/default.jpg",
-          jabatan: detail.jabatan || "PPNPN"
-        }));
-
-      scores = people.map(() => Array(pertanyaanList.length).fill(0));
-      renderForm();
-    } else {
-      alert("Data pegawai DinilaiPPNPN tidak ditemukan.");
-    }
-  }).catch(error => {
-    console.error("Gagal mengambil data DinilaiPPNPN:", error);
-  });
-}
-
-  
-
-  function renderForm() {
-    const nameEl = document.getElementById("person-name");
-    const photoEl = document.getElementById("person-photo");
-    const questionsEl = document.getElementById("questions");
-
-    const person = people[currentPerson];
-    nameEl.textContent = person.name;
-    photoEl.src = person.photo;
-    photoEl.alt = `Foto ${person.name}`;
-    photoEl.onerror = function () {
-      this.src = "images/default.jpg";
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCr_Cf37bJxVdExfrJ-CjWzpfjvAiQ0tAQ",
+      authDomain: "surveikppnmajene.firebaseapp.com",
+      databaseURL: "https://surveikppnmajene-default-rtdb.firebaseio.com",
+      projectId: "surveikppnmajene",
+      storageBucket: "surveikppnmajene.appspot.com",
+      messagingSenderId: "640777729032",
+      appId: "1:640777729032:web:a33f948c1d985b9d560dbd",
+      measurementId: "G-36WTJ9Q78P"
     };
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+  </script>
 
-    questionsEl.innerHTML = "";
+  <script>
+    let people = []; // diisi dari Firebase DinilaiPPNPN
+    let scores = [];
+    let currentPerson = 0;
+    let triwulanAktif = "TRIWULAN_I";
+    const namaResponden = localStorage.getItem("responden") || "Responden Tidak Dikenal";
 
-    pertanyaanList.forEach((pertanyaan, index) => {
-      const div = document.createElement("div");
-      const currentScore = scores[currentPerson][index];
+    const pertanyaanList = [
+      "Bagaimana Penerapan Beliau pada Nilai Integritas?",
+      "Bagaimana Penerapan Beliau pada Nilai Profesionalisme?",
+      "Bagaimana Penerapan Beliau pada Nilai Sinergi?",
+      "Bagaimana Penerapan Beliau pada Nilai Pelayanan?",
+      "Bagaimana Penerapan Beliau pada Nilai Kesempurnaan?",
+      "Bagaimana Penerapan Beliau pada Budaya Kerja \"Satu Informasi Setiap Hari\"?",
+      "Bagaimana Penerapan Beliau pada Budaya Kerja \"Dua Menit Sebelum Jadwal\"?",
+      "Bagaimana Penerapan Beliau pada Budaya Kerja \"Tiga Salam Setiap Hari\"?",
+      "Bagaimana Penerapan Beliau pada Budaya Kerja \"Rencanakan, Kerjakan, Monitor dan Tindaklanjuti\"?",
+      "Bagaimana Penerapan Beliau pada Budaya Kerja \"Ringkas, Rapi, Resik, Rawat, dan Rajin\"?"
+    ];
 
-      div.innerHTML = `
+    // Ambil triwulan aktif dari Firebase
+    database.ref("pengaturan/surveippnp/aktifTriwulan").on("value", function (snapshot) {
+      const val = snapshot.val();
+      if (val) {
+        triwulanAktif = val;
+        const teksTriwulan = val.replace("TRIWULAN_", "TRIWULAN ");
+        document.getElementById("judul-survei").textContent = `SURVEI BEST PPNPN ${teksTriwulan} TAHUN 2025`;
+      }
+    });
+
+    // Ambil data pegawai DinilaiPPNPN dari Firebase
+    function ambilDataDinilai() {
+      database.ref("DinilaiPPNPN").once("value").then(snapshot => {
+        const data = snapshot.val();
+        if (data) {
+          people = Object.entries(data)
+            .sort((a, b) => a[1].timestamp - b[1].timestamp)
+            .map(([nama, detail]) => ({
+              name: nama,
+              photo: detail.foto || "images/default.jpg",
+              jabatan: detail.jabatan || "PPNPN"
+            }));
+
+          scores = people.map(() => Array(pertanyaanList.length).fill(0));
+          renderForm();
+        } else {
+          alert("Data pegawai DinilaiPPNPN tidak ditemukan.");
+        }
+      }).catch(error => {
+        console.error("Gagal mengambil data DinilaiPPNPN:", error);
+      });
+    }
+
+
+
+    function renderForm() {
+      const nameEl = document.getElementById("person-name");
+      const photoEl = document.getElementById("person-photo");
+      const questionsEl = document.getElementById("questions");
+
+      const person = people[currentPerson];
+      nameEl.textContent = person.name;
+      photoEl.src = person.photo;
+      photoEl.alt = `Foto ${person.name}`;
+      photoEl.onerror = function () {
+        this.src = "images/default.jpg";
+      };
+
+      questionsEl.innerHTML = "";
+
+      pertanyaanList.forEach((pertanyaan, index) => {
+        const div = document.createElement("div");
+        const currentScore = scores[currentPerson][index];
+
+        div.innerHTML = `
         <div class="question">${index + 1}. ${pertanyaan}</div>
         <div class="rating">
           ${[1, 2, 3, 4, 5].map(i => `
@@ -251,96 +265,129 @@
           `).join(' ')}
         </div>
       `;
-      questionsEl.appendChild(div);
-    });
+        questionsEl.appendChild(div);
+      });
 
-    document.querySelectorAll(".fa-trophy").forEach(trophy => {
-      trophy.addEventListener("click", function () {
-        const questionIndex = parseInt(this.getAttribute("data-q"));
-        const value = parseInt(this.getAttribute("data-v"));
-        scores[currentPerson][questionIndex] = value;
+      document.querySelectorAll(".fa-trophy").forEach(trophy => {
+        trophy.addEventListener("click", function () {
+          const questionIndex = parseInt(this.getAttribute("data-q"));
+          const value = parseInt(this.getAttribute("data-v"));
+          scores[currentPerson][questionIndex] = value;
 
-        const allTrophies = document.querySelectorAll(`.fa-trophy[data-q="${questionIndex}"]`);
-        allTrophies.forEach(t => {
-          const trophyValue = parseInt(t.getAttribute("data-v"));
-          t.classList.toggle("selected", trophyValue <= value);
+          const allTrophies = document.querySelectorAll(`.fa-trophy[data-q="${questionIndex}"]`);
+          allTrophies.forEach(t => {
+            const trophyValue = parseInt(t.getAttribute("data-v"));
+            t.classList.toggle("selected", trophyValue <= value);
+          });
         });
       });
+
+      // document.getElementById("btn-prev").disabled = (currentPerson === 0);
+      document.getElementById("btn-next").textContent = currentPerson === people.length - 1 ? "Selesai" : "Berikutnya";
+    }
+
+    document.getElementById("btn-prev").addEventListener("click", function () {
+      if (currentPerson > 0) {
+        currentPerson--;
+        renderForm();
+      } else {
+        const yakin = confirm("Anda berada di awal survei.\nApakah Anda ingin kembali ke halaman utama untuk mengganti nama responden?");
+        if (yakin) {
+          window.location.href = "index.html";
+        }
+      }
     });
 
-    // document.getElementById("btn-prev").disabled = (currentPerson === 0);
-    document.getElementById("btn-next").textContent = currentPerson === people.length - 1 ? "Selesai" : "Berikutnya";
-  }
+    document.getElementById("btn-next").addEventListener("click", function () {
+  const currentScores = scores[currentPerson];
+  const pertanyaanBelumDiisi = [];
 
-  document.getElementById("btn-prev").addEventListener("click", function () {
-  if (currentPerson > 0) {
-    currentPerson--;
-    renderForm();
-  } else {
-    const yakin = confirm("Anda berada di awal survei.\nApakah Anda ingin kembali ke halaman utama untuk mengganti nama responden?");
-    if (yakin) {
-      window.location.href = "index.html";
-    }
-  }
-});
-
-
-  document.getElementById("btn-next").addEventListener("click", function () {
-    if (currentPerson < people.length - 1) {
-      currentPerson++;
-      renderForm();
-    } else {
-      simpanKeFirebase();
-      document.querySelector(".container").innerHTML = `
-        <h1 style="color: #003366; text-align: center;">Terima Kasih!</h1>
-        <p style="text-align: center; font-size: 18px;">
-          Survei Anda telah berhasil dikirim.<br/>
-          Masukan Anda sangat berarti bagi kami.
-        </p>
-        <div style="text-align: center; margin-top: 30px;">
-          <i class="fa-solid fa-circle-check" style="font-size: 60px; color: green;"></i>
-        </div>
-      `;
+  currentScores.forEach((score, index) => {
+    if (score === 0) {
+      pertanyaanBelumDiisi.push(index + 1); // +1 biar nomor soal mulai dari 1
     }
   });
 
-  function simpanKeFirebase() {
-    if (!namaResponden || namaResponden === "Responden Tidak Dikenal") {
-      alert("Nama responden tidak ditemukan. Silakan mulai dari halaman awal.");
-      window.location.href = "index.html";
-      return;
-    }
-
-    const pathTriwulan = triwulanAktif;
-    const pathResponden = namaResponden;
-
-    // const pathResponden = namaResponden.replace(/[\s.]/g, "_");
-
-    const hasilPenilaian = {};
-
-    people.forEach((person, index) => {
-    //   const pathDinilai = person.name.replace(/[\s.]/g, "_");
-    const pathDinilai = person.name;
-
-      const nilaiObj = {};
-      scores[index].forEach((val, i) => {
-        nilaiObj[`q${i+1}`] = val;
-      });
-
-      hasilPenilaian[pathDinilai] = nilaiObj;
-    });
-
-    database.ref(`SurveiBestPPNP/${pathTriwulan}/${pathResponden}`).set(hasilPenilaian)
-      .then(() => {
-        console.log(`Tersimpan: penilaian oleh ${pathResponden}`);
-      })
-      .catch((err) => {
-        console.error("Gagal simpan:", err);
-      });
+  if (pertanyaanBelumDiisi.length > 0) {
+    alert(`Harap beri penilaian untuk pertanyaan nomor: ${pertanyaanBelumDiisi.join(", ")}.`);
+    return;
   }
 
-  ambilDataDinilai();
-</script>
+  if (currentPerson < people.length - 1) {
+    currentPerson++;
+    renderForm();
+  } else {
+    simpanKeFirebase();
+    document.querySelector(".container").innerHTML = `
+      <h1 style="color: #003366; text-align: center;">Terima Kasih!</h1>
+      <p style="text-align: center; font-size: 18px;">
+        Survei Anda telah berhasil dikirim.<br/>
+        Masukan Anda sangat berarti bagi kami.
+      </p>
+      <div style="text-align: center; margin-top: 30px;">
+        <i class="fa-solid fa-circle-check" style="font-size: 60px; color: green;"></i>
+      </div>
+    `;
+  }
+});
+
+    // document.getElementById("btn-next").addEventListener("click", function () {
+    //   if (currentPerson < people.length - 1) {
+    //     currentPerson++;
+    //     renderForm();
+    //   } else {
+    //     simpanKeFirebase();
+    //     document.querySelector(".container").innerHTML = `
+    //     <h1 style="color: #003366; text-align: center;">Terima Kasih!</h1>
+    //     <p style="text-align: center; font-size: 18px;">
+    //       Survei Anda telah berhasil dikirim.<br/>
+    //       Masukan Anda sangat berarti bagi kami.
+    //     </p>
+    //     <div style="text-align: center; margin-top: 30px;">
+    //       <i class="fa-solid fa-circle-check" style="font-size: 60px; color: green;"></i>
+    //     </div>
+    //   `;
+    //   }
+    // });
+
+    function simpanKeFirebase() {
+      if (!namaResponden || namaResponden === "Responden Tidak Dikenal") {
+        alert("Nama responden tidak ditemukan. Silakan mulai dari halaman awal.");
+        window.location.href = "index.html";
+        return;
+      }
+
+      const pathTriwulan = triwulanAktif;
+      const pathResponden = namaResponden;
+
+      // const pathResponden = namaResponden.replace(/[\s.]/g, "_");
+
+      const hasilPenilaian = {};
+
+      people.forEach((person, index) => {
+        //   const pathDinilai = person.name.replace(/[\s.]/g, "_");
+        const pathDinilai = person.name;
+
+        const nilaiObj = {};
+        scores[index].forEach((val, i) => {
+          nilaiObj[`q${i + 1}`] = val;
+        });
+
+        hasilPenilaian[pathDinilai] = nilaiObj;
+      });
+
+      database.ref(`SurveiBestPPNP/${pathTriwulan}/${pathResponden}`).set(hasilPenilaian)
+        .then(() => {
+          console.log(`Tersimpan: penilaian oleh ${pathResponden}`);
+        })
+        .catch((err) => {
+          console.error("Gagal simpan:", err);
+        });
+    }
+
+    ambilDataDinilai();
+  </script>
 
 </body>
+
 </html>
